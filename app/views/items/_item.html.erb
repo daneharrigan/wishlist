@@ -3,11 +3,18 @@
     <% if item.user == current_user %>
       <%= link_to item.name, item.url %>
     <% else %>
-      <%= link_to item.name, item.url,
-                  class: (item.purchased? ? "purchased" : ""),
-                  rel: "tooltip",
-                  "data-original-title" => "Purchased by #{item.purchaser.name}",
-                  "data-placement" => "bottom" %>
+      <% if item.purchased?
+        opts = {
+          class: "purchased",
+          rel: "tooltip",
+          "data-original-title" => "Purchased by #{item.purchaser.name}",
+          "data-placement" => "bottom"
+        }
+        else
+          opts ={}
+        end
+      %>
+      <%= link_to item.name, item.url, opts %>
     <% end %>
   </td>
   <td class="actions">
