@@ -3,7 +3,7 @@ XmasList::Application.routes.draw do
   devise_scope :user do
     get    "sign-in",  to: "devise/sessions#new",     as: :new_user_session
     post   "sign-in",  to: "devise/sessions#create",  as: :user_session
-    delete "sign-out", to: "devise/sessions#destroy", as: :destroy_user_session
+    get    "sign-out", to: "devise/sessions#destroy", as: :destroy_user_session
 
     post "users/password",      to: "devise/passwords#create",     as: :user_password
     get  "users/password/new",  to: "devise/passwords#new",        as: :new_user_password
@@ -17,6 +17,6 @@ XmasList::Application.routes.draw do
   root to: "items#index"
 
   resources :users, only: [] do
-    resources :items, only: [:index, :create, :destroy]
+    resources :items, only: [:index, :create, :destroy, :update]
   end
 end

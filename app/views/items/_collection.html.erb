@@ -1,0 +1,11 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th id="item-name">Items</th>
+      <th id="item-actions">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "items/item", collection: collection, as: :item %>
+  </tbody>
+</table>

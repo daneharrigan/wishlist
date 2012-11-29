@@ -1,8 +1,16 @@
-<h1>wants</h1>
-<% @want.each do |item| %>
-  <p><%= item.name %></p>
-<% end %>
-<h1>dont</h1>
-<% @dont.each do |item| %>
-  <p><%= item.name %></p>
-<% end %>
+<div id="user-group" class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="display: block; text-align: left">
+    <span class="text"><%= format_label @user %></span>
+    <span class="caret"></span>
+  </a>
+  <ul id="user-list" class="dropdown-menu pull-right">
+    <%= render partial: "users/item", collection: @users, as: :user %>
+  </ul>
+</div>
+
+<h2>Gift Ideas</h2>
+<%= render partial: "items/collection", locals: { collection: @want } %>
+<hr>
+<h2>No Thank You</h2>
+<%= render partial: "items/collection", locals: { collection: @dont } %>
+<%= render partial: "items/form", locals: { user: @user, item: @item } %>

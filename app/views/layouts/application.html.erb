@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>XmasList</title>
+  <title>Christmas List</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <style type="text/css">
+    #item-name       { width: 60% }
+    #item-actions    { width: 40% }
+    #user-list,
+    #user-group      { width: 100% }
+    td.actions form,
+    td.actions div   { display: inline }
+    .purchased       { text-decoration: line-through; color: grey }
+  </style>
+  <script>
+    $(function(){
+      $('a[rel=tooltip]').tooltip()
+    });
+  </script>
 </head>
 <body>
+<header style="height: 70px">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="/" class="brand">Christmas List</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-<%= yield %>
-
+<div class="container">
+  <%= yield %>
+</div>
 </body>
 </html>
