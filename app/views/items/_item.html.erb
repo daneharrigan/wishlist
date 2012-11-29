@@ -1,6 +1,6 @@
 <tr>
   <td><%= link_to item.name, item.url,
-            class: (item.purchased? ? "purchased" : ""),
+            class: ((item.purchased? && item.user != current_user) ? "purchased" : ""),
             rel: "tooltip",
             "data-original-title" => "Purchased by #{item.purchaser.name}",
             "data-placement" => "bottom" %>
