@@ -60,5 +60,6 @@ module XmasList
     config.assets.version = '1.0'
     config.assets.initialize_on_precompile = false
     config.action_mailer.default_url_options = { host: "xmas-list.herokuapp.com" }
+    config.mailer_sender = "dane.harrigan@gmail.com"
   end
 end
