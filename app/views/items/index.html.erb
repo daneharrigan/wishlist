@@ -1,9 +1,9 @@
-<div id="user-group" class="btn-group">
-  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="display: block; text-align: left">
-    <span class="text"><%= format_label @user %></span>
+<div class="btn-group col-xs-12">
+  <button type="button" class="btn btn-lg btn-info dropdown-toggle col-xs-12" data-toggle="dropdown">
+    <%= format_label @user %>
     <span class="caret"></span>
-  </a>
-  <ul id="user-list" class="dropdown-menu pull-right">
+  </button>
+  <ul class="dropdown-menu col-xs-12" role="menu">
     <%= render partial: "users/item", collection: @users, as: :user %>
   </ul>
 </div>

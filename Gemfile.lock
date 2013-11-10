@@ -131,6 +131,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails
+  rake
   sass-rails
   thin
   uglifier

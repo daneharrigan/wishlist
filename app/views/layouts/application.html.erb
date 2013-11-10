@@ -1,39 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    maximum-scale=1.0, user-scalable=no">
   <title>Christmas List</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <style type="text/css">
-    #item-name       { width: 60% }
-    #item-actions    { width: 40% }
-    #user-list,
-    #user-group      { width: 100% }
-    td.actions form,
-    td.actions div   { display: inline }
-    .purchased       { text-decoration: line-through; color: grey }
-  </style>
   <script>
     $(function(){
       $('a[rel=tooltip]').tooltip()
+      $('.dropdown-toggle').dropdown()
     });
   </script>
+  <style>
+  body {
+    font-size: 16px;
+  }
+
+  nav,
+  .container {
+    width: 100%;
+    max-width: 1024px;
+  }
+
+  td a:link,
+  td a:visited {
+    line-height: 30px;
+  }
+
+  td form,
+  td form div {
+    display: inline;
+  }
+
+  td form .btn {
+    width: 110px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  #item-name {
+    width: 75%;
+  }
+
+  #item-actions {
+    width: 25%;
+  }
+
+  @media screen and (max-width: 990px) {
+    td form + form .btn {
+      margin-top: 10px;
+    }
+  }
+
+  </style>
 </head>
 <body>
-<header style="height: 70px">
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a href="/" class="brand">Christmas List</a>
-      </div>
-    </div>
-  </div>
-</header>
+
 
 <div class="container">
-  <%= yield %>
+  <nav class="navbar navbar-default" role="navigation">
+    <%- if current_user -%>
+    <div class="pull-right">
+      <a href="/sign-out" class="btn btn-default btn-lg" style="margin: 2px 2px 0
+  0">Sign Out</a>
+    </div>
+    <%- end -%>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Christmas List</a>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= yield %>
+    </div>
+  </div>
 </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "rails"
+gem "rake"
 gem "pg"
 gem "jquery-rails"
 gem "devise"
