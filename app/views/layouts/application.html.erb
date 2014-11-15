@@ -58,8 +58,6 @@
   </style>
 </head>
 <body>
-
-
 <div class="container">
   <nav class="navbar navbar-default" role="navigation">
     <%- if current_user -%>
@@ -72,6 +70,15 @@
       <a class="navbar-brand" href="/">Christmas List</a>
     </div>
   </nav>
+
+  <% if flash[:notice] %>
+  <p class="alert alert-warning"><%= flash[:notice] %></p>
+  <% end %>
+
+  <% if flash[:error] %>
+  <p class="alert alert-danger"><%= flash[:error] %></p>
+  <% end %>
+
   <div class="row">
     <div class="col-xs-12">
       <%= yield %>
