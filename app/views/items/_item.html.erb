@@ -1,17 +1,18 @@
+<% no_url = item.url.blank? ? "no-url" : "" %>
 <tr>
   <td>
     <% if item.user == current_user %>
-      <%= link_to item.name, item.url %>
+      <%= link_to item.name, item.url, class: no_url %>
     <% else %>
       <% if item.purchased?
         opts = {
-          class: "purchased",
+          class: "purchased #{no_url}",
           rel: "tooltip",
           "data-original-title" => "Purchased by #{item.purchaser.name}",
           "data-placement" => "bottom"
         }
         else
-          opts = {}
+          opts = { class: no_url }
         end
       %>
       <%= link_to item.name, item.url, opts %>

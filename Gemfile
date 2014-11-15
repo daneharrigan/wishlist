@@ -5,7 +5,7 @@ gem "rake"
 gem "pg"
 gem "jquery-rails"
 gem "devise"
-gem "thin"
+gem "puma"
 
 group :assets do
   gem "sass-rails"
