@@ -1,0 +1,17 @@
+{
+  "name": "Wishlist",
+  "description": "Quickly standup a wishlist to coordinate over gift giving holidays",
+  "website": "https://github.com/daneharrigan/wishlist",
+  "success_url": "/sign-up",
+  "addons": ["heroku-postgresql:hobby-dev", "sendgrid:starter"],
+  "env": {
+    "RAILS_ENV": "production",
+    "COOKIE_SECRET": {
+            "description": "This gets generated",
+            "generator": "secret"
+    }
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  }
+}

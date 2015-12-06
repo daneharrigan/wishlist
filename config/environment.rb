@@ -2,7 +2,7 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-XmasList::Application.initialize!
+Wishlist::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.sendgrid.net',

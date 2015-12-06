@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-XmasList::Application.load_tasks
+Wishlist::Application.load_tasks

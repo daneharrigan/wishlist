@@ -1,4 +1,4 @@
-XmasList::Application.routes.draw do
+Wishlist::Application.routes.draw do
   devise_for :user, skip: [:sessions, :passwords, :registration, :confirmations]
   devise_scope :user do
     get    "sign-in",  to: "devise/sessions#new",     as: :new_user_session
