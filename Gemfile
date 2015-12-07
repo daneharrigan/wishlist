@@ -5,7 +5,7 @@ gem "rake"
 gem "pg"
 gem "jquery-rails"
 gem "devise"
-gem "puma"
+gem "puma", "~>2.14"
 
 group :assets do
   gem "sass-rails"
@@ -14,5 +14,6 @@ group :assets do
 end
 
 group :development do
-  gem "debugger"
+  gem "debugger2"
+  gem "foreman"
 end
