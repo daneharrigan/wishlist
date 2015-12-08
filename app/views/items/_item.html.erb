@@ -33,9 +33,12 @@
         <% end %>
       <% end %>
     <% end %>
-
-    <%= form_for [item.user, item], method: :delete do |f| %>
-      <%= f.submit "Remove", class: "btn btn-danger btn-lg" %>
+    
+    <%# Let's only make items removable by the list owner %> 
+    <% if item.user == current_user %>
+      <%= form_for [item.user, item], method: :delete do |f| %>
+        <%= f.submit "Remove", class: "btn btn-danger btn-lg" %>
+      <% end %>
     <% end %>
   </td>
 </tr>
