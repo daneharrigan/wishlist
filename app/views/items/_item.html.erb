@@ -33,7 +33,9 @@
       <% if item.purchased? %>
         <%= form_for [item.user, item], method: :put do |f| %>
           <%= f.hidden_field :purchaser_id, value: "" %>
-          <%= f.button "Undo", name: "item[purchased]", value: 0, class: "btn btn-lg" %>
+          <% if item.purchaser == current_user %>
+            <%= f.button "Undo", name: "item[purchased]", value: 0, class: "btn btn-lg" %>
+          <% end %>
         <% end %>
       <% else %>
         <%= form_for [item.user, item], method: :put do |f| %>
