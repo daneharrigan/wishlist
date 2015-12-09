@@ -11,6 +11,8 @@
 <h2>Gift Ideas</h2>
 <%= render partial: "items/collection", locals: { collection: @want } %>
 <hr>
-<h2>No Thank You</h2>
-<%= render partial: "items/collection", locals: { collection: @dont } %>
+<% if @dont.size > 0 %>
+	<h2>No Thank You </h2>
+	<%= render partial: "items/collection", locals: { collection: @dont } %>
+<% end %>
 <%= render partial: "items/form", locals: { user: @user, item: @item } %>

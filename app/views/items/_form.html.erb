@@ -1,11 +1,22 @@
 <div class="form-action">
-  <h3>Add an Item To a List</h3>
+  <% if user != current_user %>
+    <h3>
+      Suggest an item for <%= user.name %>
+    </h3>
+  <% else %>
+    <h3>
+      Add an item to your lists
+    </h3>
+  <% end %>
   <%= form_for [user, item] do |f| %>
     <div class="form-group">
       <%= f.text_field :name, placeholder: "New Item Name...", class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.text_field :url, placeholder: "Item Website...", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :description, placeholder: "Why you do/don't want this...", class: "form-control" %>
     </div>
 
     <div class="row form-group">

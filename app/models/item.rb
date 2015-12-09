@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :creator_id, :name, :url, :user_id, :want, :purchaser_id, :purchased
+  attr_accessible :creator_id, :name, :url, :description, :user_id, :want, :purchaser_id, :purchased
 
   belongs_to :user
   belongs_to :creator, class_name: "User"
