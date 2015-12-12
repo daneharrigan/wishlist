@@ -1,18 +1,53 @@
-<div class="btn-group col-xs-12">
-  <button type="button" class="btn btn-lg btn-info dropdown-toggle col-xs-12" data-toggle="dropdown">
-    <%= format_label @user %>
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu col-xs-12" role="menu">
-    <%= render partial: "users/item", collection: @users, as: :user %>
-  </ul>
-</div>
-
-<h2>Gift Ideas</h2>
-<%= render partial: "items/collection", locals: { collection: @want } %>
-<hr>
-<% if @dont.size > 0 %>
-	<h2>No Thank You </h2>
-	<%= render partial: "items/collection", locals: { collection: @dont } %>
+<% if @want.size <= 0 && @dont.size <= 0 %>
+  <% if @user != current_user %>
+  	<div class="row">
+  		<div class="col-xs-12">
+  			<h3><%= user.name %> hasn't added any items to their wishlist yet!</h3>
+  		</div>
+  	</div>
+  <% else %>
+  	<div class="row">
+  		<div class="col-xs-12">
+  			<h2>Hey there, Wishlist is an easy way for you to coordinate gift giving.</h2>
+  			<h4>
+  				Use the form below to add gift ideas that your friends and family can see, or list an item as "No Thank You" to list something you want to make sure you don't receive.
+  			</h4>
+  			<h4>
+  				The dropdown above will take you to other users' lists, where you can suggest items for them, or mark items on their list as purchased. They won't be able to see items you suggest, or if you've purchased something for them, but everyone else will.
+  			</h4>
+  		</div>
+  	</div>
+  <% end %>
 <% end %>
-<%= render partial: "items/form", locals: { user: @user, item: @item } %>
+
+<% if @want.size > 0 %>
+	<div class="collection-section row">
+		<div class="col-xs-12">
+			<div class="collection-section--heading">
+				<h4>
+					<span class="heading--giftIdeas">Gift Ideas</span>
+				</h4>
+			</div>
+			<%= render partial: "items/collection", locals: { collection: @want } %>
+		</div>
+	</div>
+<% end %>
+
+<% if @dont.size > 0 %>
+	<div class="collection-section row">
+		<div class="col-xs-12">
+				<div class="collection-section--heading">
+					<h4>
+						<span class="heading--noThanks">No Thank You</span>
+					</h4>
+				</div>
+				<%= render partial: "items/collection", locals: { collection: @dont } %>
+		</div>
+	</div>
+<% end %>
+
+<div class="row">
+	<div class="col-xs-12">
+		<%= render partial: "items/form", locals: { user: @user, item: @item } %>
+	</div>
+</div>

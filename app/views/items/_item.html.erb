@@ -2,7 +2,7 @@
 <tr>
   <td>
     <% if item.user == current_user %>
-      <%= link_to item.name, item.url, class: no_url %>
+      <h4><%= link_to item.name, item.url, class: no_url %></h4>
     <% else %>
       <% if item.purchased?
         opts = {
@@ -15,7 +15,7 @@
           opts = { class: no_url }
         end
       %>
-      <%= link_to item.name, item.url, opts %>
+      <h4><%= link_to item.name, item.url, opts %></h4>
     <% end %>
     <% if item.description? %>
       <hr/>
@@ -25,7 +25,7 @@
     <% end %>
     <hr/>
     <p>
-      Suggested by: <%= item.creator.name %>
+      Suggested by: <%= item.creator.name %> <% if item.purchased? && item.user != current_user %> | Purchased by: <%= item.purchaser.name %> <% end %>
     </p>
   </td>
   <td class="actions">
@@ -34,19 +34,20 @@
         <%= form_for [item.user, item], method: :put do |f| %>
           <%= f.hidden_field :purchaser_id, value: "" %>
           <% if item.purchaser == current_user %>
-            <%= f.button "Undo", name: "item[purchased]", value: 0, class: "btn btn-lg" %>
+            <%= f.button "Undo", name: "item[purchased]", value: 0, class: "btn btn-md" %>
           <% end %>
         <% end %>
       <% else %>
         <%= form_for [item.user, item], method: :put do |f| %>
           <%= f.hidden_field :purchaser_id, value: current_user.id %>
-          <%= f.button "Purchased!", name: "item[purchased]", value: 1, class: "btn btn-success btn-lg" %>
+          <%= f.button "Purchased!", name: "item[purchased]", value: 1, class: "btn btn-success btn-md" %>
         <% end %>
       <% end %>
     <% end %>
 
+    
     <%= form_for [item.user, item], method: :delete do |f| %>
-      <%= f.submit "Remove", class: "btn btn-danger btn-lg" %>
+      <%= f.submit "Remove", class: "btn btn-danger btn-md" %>
     <% end %>
   </td>
 </tr>

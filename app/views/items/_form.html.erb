@@ -5,18 +5,18 @@
     </h3>
   <% else %>
     <h3>
-      Add an item to your lists
+      Add an item to your list
     </h3>
   <% end %>
   <%= form_for [user, item] do |f| %>
     <div class="form-group">
-      <%= f.text_field :name, placeholder: "New Item Name...", class: "form-control" %>
+      <%= f.text_field :name, placeholder: "Enter the product's name", class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.text_field :url, placeholder: "Item Website...", class: "form-control" %>
+      <%= f.text_field :url, placeholder: "http://...", class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.text_area :description, placeholder: "Why you do/don't want this...", class: "form-control" %>
+      <%= f.text_area :description, placeholder: "Why do or don't you want this...", class: "form-control" %>
     </div>
 
     <div class="row form-group">
