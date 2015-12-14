@@ -38,9 +38,9 @@ class ItemsController < ApplicationController
 
   def format_label(user)
     if user == current_user
-      return "My Christmas List"
+      return "My Wishlist"
     end
 
-    "#{user.name}'s Christmas List"
+    "#{user.name}'s Wishlist"
   end
 end
