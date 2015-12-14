@@ -1,0 +1,29 @@
+.collection-section {
+	margin-bottom: 45px;
+}
+
+.collection-section--heading {
+	color: black;
+	font-weight: 600;
+	letter-spacing: .7px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #f2f2f2;
+	line-height: 30px;
+	margin: 0 0 20px;
+}
+
+.collection-section--heading span {
+	border: 0 solid #5898F1;
+	border-width: 0 0 2px;
+	color: inherit;
+	margin: 0 0 -1px;
+	padding: 0 0 8px;	
+}
+
+.collection-section--heading span.heading--giftIdeas {
+	border-color: #F5A623;
+}
+
+.collection-section--heading span.heading--noThanks {
+	border-color: #da552f;
+}

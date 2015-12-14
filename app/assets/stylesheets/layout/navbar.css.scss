@@ -1,0 +1,46 @@
+.navbar {
+  min-height: 50px;
+  background: rgb(255,255,255);
+  border-bottom: 0px;
+  border-radius: 0;
+}
+
+.navbar-center {
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	transform:translateX(-50%);
+	margin: 0 auto;
+}
+
+.navbar-center .dropdown-menu {
+	white-space: nowrap;
+}
+.navbar-center .dropdown-toggle {
+	text-transform: uppercase;
+	letter-spacing: .6px;
+}
+.navbar-center .dropdown .dropdown-toggle {
+	color: #000;
+}
+.navbar-center .dropdown.open .dropdown-toggle  {
+	text-align: center;
+}
+
+// Bootstrap Overrides
+@media (max-width: 767px) {
+	.navbar-nav .open .dropdown-menu {
+		background-color: #fff;
+		border: 1px solid #e7e7e7;
+	}
+}
+.navbar-nav>li>a{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	white-space: nowrap;
+}
+.navbar-btn {
+	@media (min-width: 769px) {
+		margin-right: 8px;	
+	}
+}
