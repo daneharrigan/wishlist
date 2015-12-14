@@ -21,28 +21,32 @@
 <% end %>
 
 <% if @want.size > 0 %>
-	<div class="collection-section row">
-		<div class="col-xs-12">
-			<div class="collection-section--heading">
-				<h4>
-					<span class="heading--giftIdeas">Gift Ideas</span>
-				</h4>
+	<div class="collection-section">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="collection-section--heading">
+					<h4>
+						<span class="heading--giftIdeas">Gift Ideas</span>
+					</h4>
+				</div>
 			</div>
-			<%= render partial: "items/collection", locals: { collection: @want } %>
 		</div>
+		<%= render partial: "items/collection", locals: { collection: @want } %>
 	</div>
 <% end %>
 
 <% if @dont.size > 0 %>
-	<div class="collection-section row">
-		<div class="col-xs-12">
+	<div class="collection-section">
+		<div class="row">
+			<div class="col-xs-12">
 				<div class="collection-section--heading">
 					<h4>
 						<span class="heading--noThanks">No Thank You</span>
 					</h4>
 				</div>
-				<%= render partial: "items/collection", locals: { collection: @dont } %>
+			</div>
 		</div>
+		<%= render partial: "items/collection", locals: { collection: @dont } %>
 	</div>
 <% end %>
 
