@@ -35,7 +35,7 @@
 							<% else %>
 								<%= form_for [item.user, item], method: :put do |f| %>
 									<%= f.hidden_field :purchaser_id, value: current_user.id %>
-									<%= f.button "Purchased!", name: "item[purchased]", value: 1, class: "btn btn-success btn-md pull-left" %>
+									<%= f.button "I Bought This!", name: "item[purchased]", value: 1, class: "btn btn-success btn-md pull-left" %>
 								<% end %>
 							<% end %>
 						<% end %>

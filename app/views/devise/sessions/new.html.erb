@@ -7,9 +7,9 @@
     <%= f.password_field :password, placeholder: "Password...", class: "form-control" %>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
+  <% if devise_mapping.rememberable? %>
     <%= f.hidden_field :remember_me, value: 1 %>
-  <% end -%>
+  <% end %>
 
   <div><%= f.submit "Sign In", class: "btn btn-block btn-lg btn-primary" %></div>
 <% end %>

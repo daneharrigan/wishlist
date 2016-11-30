@@ -40,12 +40,12 @@
       <% else %>
         <%= form_for [item.user, item], method: :put do |f| %>
           <%= f.hidden_field :purchaser_id, value: current_user.id %>
-          <%= f.button "Purchased!", name: "item[purchased]", value: 1, class: "btn btn-success btn-md" %>
+          <%= f.button "I Bought This!", name: "item[purchased]", value: 1, class: "btn btn-success btn-md" %>
         <% end %>
       <% end %>
     <% end %>
 
-    
+
     <%= form_for [item.user, item], method: :delete do |f| %>
       <%= f.submit "Remove", class: "btn btn-danger btn-md" %>
     <% end %>
