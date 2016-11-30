@@ -1,24 +1,24 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="navbar-left">
-    <a class="navbar-brand hidden-sm hidden-xs" href="/">Wishlist</a>
-  </div>
+	<div class="navbar-left">
+		<a class="navbar-brand hidden-sm hidden-xs" href="/">Wishlist</a>
+	</div>
 	<%- if current_user -%>
-	  <ul class="nav navbar-center navbar-nav">
-		  <li class="dropdown">
-		  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-			    <%= format_label @user %>
-			    <span class="caret"></span>
-			  </a>
-			  <ul class="dropdown-menu" role="menu">
-			    <%= render partial: "users/item", collection: @users, as: :user %>
-			    <li role="separator" class="divider hidden-md hidden-lg hidden-xl"></li>
-			    <li class="hidden-md hidden-lg hidden-xl">
-			    	<a href="/sign-out">Sign Out</a>
-			    </li>
-			  </ul>
+		<ul class="nav navbar-center navbar-nav">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<%= format_label @user %>
+					<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu" role="menu">
+					<%= render partial: "users/item", collection: @users, as: :user %>
+					<li role="separator" class="divider hidden-md hidden-lg hidden-xl"></li>
+					<li class="hidden-md hidden-lg hidden-xl">
+						<a href="/sign-out">Sign Out</a>
+					</li>
+				</ul>
 			</li>
 		</ul>
 
-    <a href="/sign-out" class="btn btn-default navbar-btn navbar-right hidden-sm hidden-xs">Sign Out</a>
-  <%- end -%>
+		<a href="/sign-out" class="btn btn-default navbar-btn navbar-right hidden-sm hidden-xs">Sign Out</a>
+	<%- end -%>
 </nav>

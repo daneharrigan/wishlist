@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-md-3">
 	<div class="gift-card">
-		
+
 		<a class="gift-card--link" <% if item.url? %>href="<%= item.url %>" target="_blank"<% end %>>
 
 			<div class="gift-card--content">
@@ -22,33 +22,33 @@
 			<div class="gift-card--actions">
 				<div class="row">
 					<div class="col-sm-6">
-				    <% if item.user != current_user && item.want %>
-				      <% if item.purchased? %>
-			          <% if item.purchaser == current_user %>
-					        <%= form_for [item.user, item], method: :put do |f| %>
-					          <%= f.hidden_field :purchaser_id, value: "" %>
-					          <%= f.button "Undo Purchase", name: "item[purchased]", value: 0, class: "btn btn-md pull-left" %>
-					        <% end %>
-					      <% else %>
-					      	<button class="btn btn-md disable pull-left" rel="tooltip" data-original-title="Purchased by #{item.purchaser.name}" data-placement="bottom">Bought by <%= item.purchaser.name %></button>
-					      <% end %> 
-				      <% else %>
-				        <%= form_for [item.user, item], method: :put do |f| %>
-				          <%= f.hidden_field :purchaser_id, value: current_user.id %>
-				          <%= f.button "Purchased!", name: "item[purchased]", value: 1, class: "btn btn-success btn-md pull-left" %>
-				        <% end %>
-				      <% end %>
-				    <% end %>
-				  </div>
-				  <div class="col-sm-6">
-				  	<% if current_user == item.creator %>
-				      <%= form_for [item.user, item], method: :delete do |f| %>
-		      			<%= f.submit "Remove", class: "btn btn-danger btn-md pull-right" %>
-		    			<% end %>
-		    		<% end %>
-				 	</div>
+						<% if item.user != current_user && item.want %>
+							<% if item.purchased? %>
+								<% if item.purchaser == current_user %>
+									<%= form_for [item.user, item], method: :put do |f| %>
+										<%= f.hidden_field :purchaser_id, value: "" %>
+										<%= f.button "Undo Purchase", name: "item[purchased]", value: 0, class: "btn btn-md pull-left" %>
+									<% end %>
+								<% else %>
+									<button class="btn btn-md disable pull-left" rel="tooltip" data-original-title="Purchased by #{item.purchaser.name}" data-placement="bottom">Bought by <%= item.purchaser.name %></button>
+								<% end %>
+							<% else %>
+								<%= form_for [item.user, item], method: :put do |f| %>
+									<%= f.hidden_field :purchaser_id, value: current_user.id %>
+									<%= f.button "Purchased!", name: "item[purchased]", value: 1, class: "btn btn-success btn-md pull-left" %>
+								<% end %>
+							<% end %>
+						<% end %>
+					</div>
+					<div class="col-sm-6">
+						<% if current_user == item.creator %>
+							<%= form_for [item.user, item], method: :delete do |f| %>
+								<%= f.submit "Remove", class: "btn btn-danger btn-md pull-right" %>
+							<% end %>
+						<% end %>
+					</div>
 				</div>
-		  </div>
+			</div>
 
 			<span class="gift-card--suggestedBy">
 				<p>Suggested by: <%= item.creator.name %></p>
