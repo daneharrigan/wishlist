@@ -1,8 +1,8 @@
 <% if @want.size <= 0 && @dont.size <= 0 %>
-  <% if user != current_user %>
+  <% if @user != current_user %>
   	<div class="row">
   		<div class="col-xs-12">
-  			<h3><%= user.name %> hasn't added any items to their wishlist yet!</h3>
+  			<h3><%= @user.name %> hasn't added any items to their wishlist yet!</h3>
   		</div>
   	</div>
   <% else %>
